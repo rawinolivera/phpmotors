@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap");
+body {
+  padding: 0;
+  margin: 0;
+}
+body header h2 {
+  font-family: Londrina Shadow;
+  display: inline-block;
+  position: absolute;
+  right: 1rem;
+}
+body header img {
+  border-radius: 20px;
+}
+body nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  background-color: #3a3a3a;
+}
+body nav ul a {
+  text-decoration: none;
+}
+body nav ul a li {
+  color: #ffffff;
+  font-family: Oswald;
+  padding: 0.3rem;
+  font-size: 1.3rem;
+}
+body nav ul a:hover {
+  background-color: #4c96d7;
+}
+body main {
+  padding: 0.5rem;
+}
+body main h1 {
+  font-family: Londrina Shadow;
+}
+body main section h2, body main p, body main li, body main h3 {
+  font-family: Love Ya Like A Sister;
+}
+body main #dmc img {
+  width: 100%;
+  position: relative;
+  z-index: -1;
+}
+body main #dmc .list {
+  position: absolute;
+}
+body main #dmc h2 {
+  font-size: 1.3rem;
+}
+body main #dmc h2, body main #dmc p {
+  margin: 0;
+  color: #4c96d7;
+  font-weight: 600;
+}
+body main #dmc .button {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+body main #dmc button {
+  font-family: Oswald;
+  padding: 0.3rem 1.5rem;
+  font-size: 1.3rem;
+  margin: 0;
+  background-color: #4c96d7;
+  color: #bababa;
+}
+body main #dmc #btn1 {
+  display: none;
+}
+body main #upgrades {
+  padding-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+body main #upgrades h2 {
+  grid-column: 1/3;
+  margin: 0.5rem;
+}
+body main #upgrades div {
+  text-align: center;
+  margin: 0.25rem;
+  background-color: #4c96d7;
+  height: 5.5rem;
+  border: 1px #3a3a3a solid;
+}
+body main #upgrades div img {
+  width: 4rem;
+  padding-top: 0.5rem;
+}
+body main #upgrades .flux h3 {
+  margin-top: 10px;
+}
+body main #upgrades .flame h3 {
+  margin-top: -5px;
+}
+body main #upgrades .hub h3 {
+  margin-top: 10px;
+}
+body main #upgrades .bumper, body main #upgrades .hub {
+  margin-top: 2rem;
+}
+body footer {
+  padding-top: 0.5rem;
+  border-top: 3px #3a3a3a solid;
+}
+body footer p {
+  font-family: Oswald;
+  text-align: center;
+  margin: 0;
+}
+
+@media only screen and (min-width: 36rem) {
+  html {
+    background-image: url(/phpmotors/images/site/small_check.jpg);
+  }
+  html body {
+    background-color: #ffffff;
+    margin: 2rem;
+    border: 4px #4c96d7 solid;
+    border-radius: 15px;
+  }
+  html body header h2 {
+    right: 3rem;
+  }
+  html body header nav ul {
+    justify-content: left;
+  }
+  html body header nav ul li {
+    padding: 0.5rem 1.2rem;
+  }
+  html body #dmc .list {
+    z-index: 1;
+  }
+  html body #dmc img {
+    z-index: 0;
+  }
+  html body #reviews li {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 54rem) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  main #dmc {
+    grid-column: 1/3;
+    padding-left: 1.5rem;
+  }
+  main #dmc .button {
+    display: none;
+  }
+  main #dmc .list #btn1 {
+    display: block;
+    margin-top: 1rem;
+  }
+  main #upgrades {
+    margin: 1.5rem;
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  main #upgrades h2 {
+    padding: 1rem 0;
+  }
+  main #reviews {
+    margin: 1.5rem;
+    grid-column: 2/3;
+  }
+  main #reviews h2 {
+    margin: 1.5rem;
+  }
+  main #reviews li {
+    line-height: 2.2rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
