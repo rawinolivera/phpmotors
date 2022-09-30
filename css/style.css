@@ -22,16 +22,16 @@ body nav ul {
   padding: 0;
   background-color: #3a3a3a;
 }
-body nav ul a {
-  text-decoration: none;
-}
-body nav ul a li {
-  color: #ffffff;
+body nav ul li {
   font-family: Oswald;
   padding: 0.3rem;
   font-size: 1.3rem;
 }
-body nav ul a:hover {
+body nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+body nav ul li:hover {
   background-color: #4c96d7;
 }
 body main {
