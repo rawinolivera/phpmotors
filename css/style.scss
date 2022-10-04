@@ -134,7 +134,7 @@ body {
                     padding: .5rem 1.2rem;
                 }
             }
-            #dmc {
+            #home #dmc {
                 .list {
                     z-index: 1;
                 }
@@ -142,7 +142,7 @@ body {
                     z-index: 0;
                 }
             }
-            #reviews li {
+            #home #reviews li {
                 font-size: 1rem;
             }
         }
@@ -150,7 +150,7 @@ body {
 }
 
  @media only screen and (min-width: 54rem) {
-    main {
+    #home {
         display: grid;
         grid-template-columns: 1fr 1fr;
         #dmc {

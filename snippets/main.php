@@ -1,4 +1,4 @@
-<main>
+<main id="home">
     <h1>Welcome to PHP Motors!</h1>
     <section id="dmc">
     <h2>DMC Delorean</h2>
