@@ -9,8 +9,11 @@
 </head>
 <body>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'?>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/main-500.php'?>
+    <main id="error">
+        <h1>Server Error</h1>
+        <p>Sorry our server seems to be experiencing  some technical difficulties. Please check back later.</p>
+    </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
-    <script src="/phpmotors/js/motors.js"></script>
+<script src="/phpmotors/js/motors.js"></script>
 </body>
 </html>
