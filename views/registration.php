@@ -9,10 +9,18 @@
 </head>
 <body>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'?>
-    <main id="login">
-        <h1>Sign in</h1>
-        <form action="">
+    <main id="registration">
+        <h1>Register</h1> <!--
+        <form id="form-reg" action="">
             <fieldset>
+                <label class="userinfo" for="">
+                    First Name:
+                    <input type="text">
+                </label>
+                <label class="userinfo" for="">
+                    Last Name:
+                    <input type="text">
+                </label>
                 <label class="userinfo" for="">
                     Email:
                     <input type="text">
@@ -23,7 +31,7 @@
                 </label>
                 <button></button>
             </fieldset>
-        </form>
+        </form> -->
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
     <script src="/phpmotors/js/motors.js"></script>

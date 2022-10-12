@@ -43,6 +43,12 @@ body main h1 {
 body main section h2, body main p, body main li, body main h3 {
   font-family: Love Ya Like A Sister;
 }
+body main #registration {
+  background-color: gray;
+}
+body main #login {
+  background-color: blue;
+}
 body main #dmc img {
   width: 100%;
   position: relative;
