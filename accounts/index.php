@@ -24,7 +24,14 @@ if ($action == NULL){
     $action = filter_input(INPUT_GET, 'action');
 }
 switch ($action){
-
+    case 'register':
+        include '../views/registration.php';
+        break;
+    case 'home':
     default: 
-    include '../views/login.php';
+        include '../views/login.php';
+
+    break;
+
+    
 }

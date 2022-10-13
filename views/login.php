@@ -12,17 +12,17 @@
     <main id="login">
         <h1>Sign in</h1>
         <form action="">
-                <label class="userinfo" for="">
+                <label class="userinfo" for="userEmail">
                     Email:
-                    <input type="text">
+                    <input type="text" name="userEmail" id="userEmail" required>
                 </label>
-                <label class="userinfo" for="">
+                <label class="userinfo" for="userPassword">
                     Password:
-                    <input type="password">
+                    <input type="password" name="userPassword" id="userPassword" required>
                 </label>
                 <button>Sign-in</button>
         </form>
-        <p><a href="../views/registration.php">Not a member yet?</a></p>
+        <p><a href="index.php?action=register">Not a member yet?</a></p>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
     <script src="/phpmotors/js/motors.js"></script>

@@ -11,6 +11,10 @@ body header h2 {
   position: absolute;
   right: 1rem;
 }
+body header h2 a {
+  text-decoration: none;
+  color: #3a3a3a;
+}
 body header img {
   border-radius: 20px;
 }
@@ -43,12 +47,6 @@ body main h1 {
 body main section h2, body main p, body main li, body main h3 {
   font-family: Love Ya Like A Sister;
 }
-<<<<<<< HEAD
-body main #login {
-  background-color: blue;
-}
-=======
->>>>>>> 0330b7daa7233113b7581d16c97d447653a1eccb
 body main #dmc img {
   width: 100%;
   position: relative;
@@ -116,19 +114,42 @@ body #login form label, body #registration form label {
   display: block;
   font-weight: 600;
   font-family: Oswald;
+  font-size: 1.2rem;
 }
 body #login form label input, body #registration form label input {
   display: block;
   font-family: Love Ya Like A Sister;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  padding: 0.5rem;
   font-weight: 600;
+  max-width: 18rem;
+  width: 100%;
+}
+body #login form p, body #registration form p {
+  margin: 0;
+  font-weight: 600;
+  font-family: Oswald;
+  font-size: 1.2rem;
+}
+body #login form #showBtn, body #registration form #showBtn {
+  padding: 0.5rem 1rem;
+  background-color: #8d8d8d;
+  color: #ffffff;
+  max-width: 12rem;
+  text-align: center;
+  margin: 0;
+  border-radius: 0.5rem;
 }
 body #login form button, body #registration form button {
   background-color: #4c96d7;
   margin-top: 0.5rem;
   font-family: Love Ya Like A Sister;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+body #login p, body #registration p {
+  font-size: 1.5rem;
 }
 body footer {
   padding-top: 0.5rem;

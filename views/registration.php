@@ -14,24 +14,24 @@
     <main id="registration">
         <h1>Register</h1>
         <form id="form-reg" action="">
-            <label class="userinfo" for="">
+            <label class="userinfo" for="firstName">
                 First Name:
-                <input type="text">
+                <input type="text" name="firstName" id="firstName" required>
             </label>
-            <label class="userinfo" for="">
+            <label class="userinfo" for="lastName">
                 Last Name:
-                <input type="text">
+                <input type="text" name="lastName" id="lastName" required>
             </label>
-            <label class="userinfo" for="">
+            <label class="userinfo" for="userEmail">
                 Email:
-                <input type="text">
+                <input type="text" name="userEmail" id="userEmail" required>
             </label>
-            <label class="userinfo" for="">
-                Password must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character <br>
+            <p>Password must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character </p>
+            <label class="userinfo" for="userPassword">
                 Password:
-                <input type="password">
+                <input type="password" name="userPassword" id="userPassword" required>
             </label>
-            <p>Show Password</p>
+            <p id="showBtn">Show Password</p>
             <button>Register</button>
         </form>
     </main>
