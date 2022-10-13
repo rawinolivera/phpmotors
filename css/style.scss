@@ -40,12 +40,7 @@ body {
         section h2, p, li, h3 {
             font-family: $coolFont;
         }
-        #registration {
-            background-color: gray;
-        }
-        #login {
-            background-color: blue;
-        }
+        
         #dmc {
             img {
                 width: 100%;
@@ -109,6 +104,28 @@ body {
             }
             .bumper, .hub {
                 margin-top: 2rem;
+            }
+        }
+    }
+    #login, #registration {
+        form {
+            label {
+                display: block;
+                font-weight: 600;
+                font-family: $baseFont;
+                input {
+                    display: block;
+                    font-family: $coolFont;
+                    font-size: .8rem;
+                    font-weight: 600;
+                }
+            }
+            button {
+                background-color: $base;
+                margin-top: .5rem;
+                font-family: $coolFont;
+                font-weight: 600;
+                font-size: 1rem;
             }
         }
     }

@@ -12,7 +12,6 @@
     <main id="login">
         <h1>Sign in</h1>
         <form action="">
-            <fieldset>
                 <label class="userinfo" for="">
                     Email:
                     <input type="text">
@@ -21,9 +20,9 @@
                     Password:
                     <input type="password">
                 </label>
-                <button></button>
-            </fieldset>
+                <button>sign-in</button>
         </form>
+        <p><a href="../views/registration.php">Not a member yet?</a></p>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
     <script src="/phpmotors/js/motors.js"></script>

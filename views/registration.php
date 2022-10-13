@@ -10,9 +10,8 @@
 <body>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'?>
     <main id="registration">
-        <h1>Register</h1> <!--
+        <h1>Register</h1>
         <form id="form-reg" action="">
-            <fieldset>
                 <label class="userinfo" for="">
                     First Name:
                     <input type="text">
@@ -26,12 +25,13 @@
                     <input type="text">
                 </label>
                 <label class="userinfo" for="">
+                    Password must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character <br>
                     Password:
                     <input type="password">
                 </label>
-                <button></button>
-            </fieldset>
-        </form> -->
+                <p>Show Password</p>
+                <button>Register</button>
+        </form>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
     <script src="/phpmotors/js/motors.js"></script>
