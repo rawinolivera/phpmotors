@@ -20,8 +20,13 @@
                     Password:
                     <input type="password">
                 </label>
+<<<<<<< HEAD
                 <button>Login</button>
+=======
+                <button>sign-in</button>
+>>>>>>> 0330b7daa7233113b7581d16c97d447653a1eccb
         </form>
+        <p><a href="../views/registration.php">Not a member yet?</a></p>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
     <script src="/phpmotors/js/motors.js"></script>

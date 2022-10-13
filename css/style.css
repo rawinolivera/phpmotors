@@ -43,9 +43,12 @@ body main h1 {
 body main section h2, body main p, body main li, body main h3 {
   font-family: Love Ya Like A Sister;
 }
+<<<<<<< HEAD
 body main #login {
   background-color: blue;
 }
+=======
+>>>>>>> 0330b7daa7233113b7581d16c97d447653a1eccb
 body main #dmc img {
   width: 100%;
   position: relative;
@@ -108,6 +111,24 @@ body main #upgrades .hub h3 {
 }
 body main #upgrades .bumper, body main #upgrades .hub {
   margin-top: 2rem;
+}
+body #login form label, body #registration form label {
+  display: block;
+  font-weight: 600;
+  font-family: Oswald;
+}
+body #login form label input, body #registration form label input {
+  display: block;
+  font-family: Love Ya Like A Sister;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+body #login form button, body #registration form button {
+  background-color: #4c96d7;
+  margin-top: 0.5rem;
+  font-family: Love Ya Like A Sister;
+  font-weight: 600;
+  font-size: 1rem;
 }
 body footer {
   padding-top: 0.5rem;

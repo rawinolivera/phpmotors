@@ -12,7 +12,6 @@
     <main id="registration">
         <h1>Register</h1>
         <form id="form-reg" action="">
-            <fieldset>
                 <label class="userinfo" for="">
                     First Name:
                     <input type="text">
@@ -26,11 +25,17 @@
                     <input type="text">
                 </label>
                 <label class="userinfo" for="">
+                    Password must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character <br>
                     Password:
                     <input type="password">
                 </label>
+<<<<<<< HEAD
                 <button></button>
             </fieldset>
+=======
+                <p>Show Password</p>
+                <button>Register</button>
+>>>>>>> 0330b7daa7233113b7581d16c97d447653a1eccb
         </form>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
