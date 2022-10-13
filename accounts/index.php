@@ -24,14 +24,7 @@ if ($action == NULL){
     $action = filter_input(INPUT_GET, 'action');
 }
 switch ($action){
-<<<<<<< HEAD
-    default: 
-    include '../views/login.php';
-
-    break;
-=======
 
     default: 
     include '../views/login.php';
->>>>>>> 0330b7daa7233113b7581d16c97d447653a1eccb
 }

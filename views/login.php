@@ -20,11 +20,7 @@
                     Password:
                     <input type="password">
                 </label>
-<<<<<<< HEAD
-                <button>Login</button>
-=======
-                <button>sign-in</button>
->>>>>>> 0330b7daa7233113b7581d16c97d447653a1eccb
+                <button>Sign-in</button>
         </form>
         <p><a href="../views/registration.php">Not a member yet?</a></p>
     </main>
