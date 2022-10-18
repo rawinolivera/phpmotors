@@ -287,12 +287,12 @@ CREATE TABLE `clients` (
   `comment` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-Indexes for table `clients`
+-- Indexes for table `clients`
 
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`clientId`);
 
-AUTO_INCREMENT for table `clients`
+-- AUTO_INCREMENT for table `clients`
 
 ALTER TABLE `clients`
 MODIFY `clientId` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
