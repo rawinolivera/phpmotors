@@ -140,7 +140,7 @@ body #login form #showBtn, body #registration form #showBtn {
   margin: 0;
   border-radius: 0.5rem;
 }
-body #login form button, body #registration form button {
+body #login form #regbtn, body #registration form #regbtn {
   background-color: #4c96d7;
   margin-top: 0.5rem;
   font-family: Love Ya Like A Sister;

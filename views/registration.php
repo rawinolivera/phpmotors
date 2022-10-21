@@ -13,26 +13,32 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php' ?>
     <main id="registration">
         <h1>Register</h1>
-        <form id="form-reg" action="">
+        <?php
+        if (isset($message)){
+            echo $message;
+        }
+        ?>
+        <form id="form-reg" action="/phpmotors/accounts/index.php" method="post">
             <label class="userinfo" for="firstName">
                 First Name:
-                <input type="text" name="firstName" id="firstName" required>
+                <input type="text" name="clientFirstname" id="firstName">
             </label>
             <label class="userinfo" for="lastName">
                 Last Name:
-                <input type="text" name="lastName" id="lastName" required>
+                <input type="text" name="clientLastname" id="lastName">
             </label>
             <label class="userinfo" for="userEmail">
                 Email:
-                <input type="text" name="userEmail" id="userEmail" required>
+                <input type="text" name="clientEmail" id="userEmail">
             </label>
             <p>Password must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character </p>
             <label class="userinfo" for="userPassword">
                 Password:
-                <input type="password" name="userPassword" id="userPassword" required>
+                <input type="password" name="clientPassword" id="userPassword">
             </label>
             <p id="showBtn">Show Password</p>
-            <button>Register</button>
+            <input type="submit" name="submit" id="regbtn" value="Register">
+            <input type="hidden" name="action" value="register">
         </form>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>

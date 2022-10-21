@@ -11,18 +11,23 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'?>
     <main id="login">
         <h1>Sign in</h1>
+        <?php
+        if (isset($message)){
+            echo $message;
+        }
+        ?>
         <form action="">
                 <label class="userinfo" for="userEmail">
                     Email:
-                    <input type="text" name="userEmail" id="userEmail" required>
+                    <input type="text" name="userEmail" id="userEmail">
                 </label>
                 <label class="userinfo" for="userPassword">
                     Password:
-                    <input type="password" name="userPassword" id="userPassword" required>
+                    <input type="password" name="userPassword" id="userPassword">
                 </label>
-                <button>Sign-in</button>
+                <input type="submit" name="submit" id="regbtn" value="Sign-in">
         </form>
-        <p><a href="index.php?action=register">Not a member yet?</a></p>
+        <p><a href="index.php?action=not-register">Not a member yet?</a></p>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
     <script src="/phpmotors/js/motors.js"></script>
