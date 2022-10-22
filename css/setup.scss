@@ -19,7 +19,7 @@ $coolFont: Love Ya Like A Sister;
         font-weight: 600;
         font-family: $baseFont;
         font-size: 1.2rem;
-        input {
+        input, textarea {
             display: block;
             font-family: $coolFont;
             font-size: 1rem;
@@ -34,6 +34,17 @@ $coolFont: Love Ya Like A Sister;
         font-weight: 600;
         font-family: $baseFont;
         font-size: 1.2rem;
+    }
+    #list {
+        display: block;
+        font-family: $coolFont;
+        font-size: 1rem;
+        padding: .5rem;
+        font-weight: 600;
+        max-width: 19rem;
+        width: 100%;
+        margin-bottom: .5rem;
+
     }
     #showBtn {
         padding: .5rem 1rem;

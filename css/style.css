@@ -116,7 +116,7 @@ body #login form label, body #registration form label, body #classification form
   font-family: Oswald;
   font-size: 1.2rem;
 }
-body #login form label input, body #registration form label input, body #classification form label input, body #vehicle form label input {
+body #login form label input, body #login form label textarea, body #registration form label input, body #registration form label textarea, body #classification form label input, body #classification form label textarea, body #vehicle form label input, body #vehicle form label textarea {
   display: block;
   font-family: Love Ya Like A Sister;
   font-size: 1rem;
@@ -130,6 +130,16 @@ body #login form p, body #registration form p, body #classification form p, body
   font-weight: 600;
   font-family: Oswald;
   font-size: 1.2rem;
+}
+body #login form #list, body #registration form #list, body #classification form #list, body #vehicle form #list {
+  display: block;
+  font-family: Love Ya Like A Sister;
+  font-size: 1rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  max-width: 19rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
 }
 body #login form #showBtn, body #registration form #showBtn, body #classification form #showBtn, body #vehicle form #showBtn {
   padding: 0.5rem 1rem;
