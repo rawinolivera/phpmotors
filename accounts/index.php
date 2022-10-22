@@ -60,9 +60,7 @@ switch ($action){
             exit;
         }
         break;
-
-        include '../views/registration.php';
-        break;
+        
     case 'home':
     default: 
         include '../views/login.php';

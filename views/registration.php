@@ -37,7 +37,7 @@
                 <input type="password" name="clientPassword" id="userPassword">
             </label>
             <p id="showBtn">Show Password</p>
-            <input type="submit" name="submit" id="regbtn" value="Register">
+            <input type="submit" name="submit" id="btn" value="Register">
             <input type="hidden" name="action" value="register">
         </form>
     </main>

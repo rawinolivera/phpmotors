@@ -25,7 +25,7 @@
                     Password:
                     <input type="password" name="userPassword" id="userPassword">
                 </label>
-                <input type="submit" name="submit" id="regbtn" value="Sign-in">
+                <input type="submit" name="submit" id="btn" value="Sign-in">
         </form>
         <p><a href="index.php?action=not-register">Not a member yet?</a></p>
     </main>
