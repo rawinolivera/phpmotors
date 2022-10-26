@@ -60,7 +60,7 @@ switch ($action){
 
         if($regNewClassifName === 1){
             $message = "<p>$classificationName has been added successfully to the Classification List.</p>";
-            include '../views/add-classification.php';
+            header('Location: /phpmotors/vehicles/index.php');
             exit;
         }else{
             $message = "<p>Sorry $classificationName, but the registration failed. Please try again.</p>";
