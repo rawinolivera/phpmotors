@@ -3,7 +3,6 @@
  * Accounts Model
  */
 
-
  // Register a new client
 function RegClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword){
     $db = phpmotorsConnect();
