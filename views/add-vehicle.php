@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+<?php
+// Build the selesct list
+$classificationList = '<select id="list" name="classificationId" required>';
+$classificationList .='<option value="">Choose from the List</option>';
+foreach ($classLists as $classList){
+    $classificationList .="<option value=".urlencode($classList['classificationId'])."";
+        if(isset($classificationId)){
+            if($classList['classificationId'] === $classificationId){
+                $classificationList .= ' selected ';
+            }
+        }
+    $classificationList .=">$classList[classificationName]</option>";
+}
+$classificationList .='</select>';
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +24,11 @@
 </head>
 <body>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'?>
+    <nav>
+        <?php // require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php';
+            echo $navList;
+        ?>
+    </nav>
     <main id="vehicle">
         <h1>Add Vehicle</h1>
         <?php
@@ -26,35 +46,35 @@
             </select> -->
             <label for="invMake">
                 Make
-                <input type="text" id="invMake" name="invMake">
+                <input type="text" id="invMake" name="invMake" <?php if(isset($invMake)){echo "value='$invMake'";} ?> required>
             </label>
             <label for="invModel">
                 Model
-                <input type="text" id="invModel" name="invModel">
+                <input type="text" id="invModel" name="invModel" <?php if(isset($invModel)){echo "value='$invModel'";} ?> required>
             </label>
             <label for="invDescription">
                 Description
-                <textarea name="invDescription" id="invDescription" cols="30" rows="2"></textarea>
+                <textarea name="invDescription" id="invDescription" cols="30" rows="2" required><?php if(isset($invDescription)){echo $invDescription;} ?></textarea>
             </label>
             <label for="invImage">
                 Image Path
-                <input type="text" id="invImage" name="invImage">
+                <input type="text" id="invImage" name="invImage" <?php if(isset($invImage)){echo "value='$invImage'";} ?> required>
             </label>
             <label for="invThumbnail">
                 Thumbnail Path
-                <input type="text" id="invThumbnail" name="invThumbnail">
+                <input type="text" id="invThumbnail" name="invThumbnail" <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";} ?> required>
             </label>
             <label for="invPrice">
                 Price
-                <input type="text" id="invPrice" name="invPrice">
+                <input type="number" id="invPrice" name="invPrice" <?php if(isset($invPrice)){echo "value='$invPrice'";} ?> required>
             </label>
             <label for="invStock">
                 # In Stock
-                <input type="text" id="invStock" name="invStock">
+                <input type="text" id="invStock" name="invStock" <?php if(isset($invStock)){echo "value='$invStock'";} ?> required>
             </label>
             <label for="invColor">
                 Color
-                <input type="text" id="invColor" name="invColor">
+                <input type="text" id="invColor" name="invColor" <?php if(isset($invColor)){echo "value='$invColor'";} ?> required>
             </label>
             <input type="submit" id="btn" value="Add Vehicle">
             <input type="hidden" name="action" value="add-vehicle">

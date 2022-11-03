@@ -5,28 +5,19 @@
 require_once '../libraries/connections.php';
 require_once '../model/vehicles-model.php';
 require_once '../model/main-model.php';
-
+require_once '../libraries/functions.php';
+//arrays
 $classifications = getClassifications();
 $classLists = getClassList();
 //var_dump($classifications);
 //exit;
 
 // Build a navigation bar using the $classifications array
-$navList = '<ul>';
-$navList .= "<li><a href='/phpmotors/index.php' tittle='View the PHP Motors home page'>Home</a></li>";
-foreach ($classifications as $classification){
-    $navList .="<li><a href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-}
-$navList .='</ul>';
+$navList = navList($classifications);
 //echo $navList;
 
 //Build a dynamic drop-down select-list using $classificacion array
-$classificationList = '<select id="list" name="classificationId">';
-$classificationList .="<option value=''>Choose from the List</option>";
-foreach ($classLists as $classList){
-    $classificationList .="<option value=".urlencode($classList['classificationId']).">$classList[classificationName]</option>";
-}
-$classificationList .='</select>';
+
 //echo $classificationList;
 
 $action = filter_input(INPUT_POST, 'action');
@@ -48,7 +39,7 @@ switch ($action){
         break;
 
     case 'add-classification':
-        $classificationName = filter_input(INPUT_POST, 'classificationName');
+        $classificationName = filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if(empty($classificationName)){
             $message = '<p>Please provide the classification name.</p>';
@@ -70,17 +61,17 @@ switch ($action){
         break;
 
     case 'add-vehicle':
-        $classificationId = filter_input(INPUT_POST, 'classificationId');
-        $invMake = filter_input(INPUT_POST, 'invMake');
-        $invModel = filter_input(INPUT_POST, 'invModel');
-        $invDescription = filter_input(INPUT_POST, 'invDescription');
-        $invImage = filter_input(INPUT_POST, 'invImage');
-        $invThumbnail = filter_input(INPUT_POST, 'invThumbnail');
-        $invPrice = filter_input(INPUT_POST, 'invPrice');
-        $invStock = filter_input(INPUT_POST, 'invStock');
-        $invColor = filter_input(INPUT_POST, 'invColor');
+        $classificationId = filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $invDescription = filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $invImage = filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $invThumbnail = filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $invPrice = trim(filter_input(INPUT_POST, 'invPrice', FILTER_FLAG_ALLOW_FRACTION));
+        $invStock = filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $invColor = filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        if(empty($classificationId || $invMake || $invModel || $invDescription || $invImage || $invThumbnail || $invPrice || $invStock || $invColor)){
+        if(($classificationId === "") || empty($invMake || $invModel || $invDescription || $invImage || $invThumbnail || $invPrice || $invStock || $invColor)){
             $message = '<p>Please provide informarion in all the fields.</p>';
             include '../views/add-vehicle.php';
             exit;

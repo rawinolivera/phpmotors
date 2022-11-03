@@ -4,18 +4,14 @@
 
 require_once 'libraries/connections.php';
 require_once 'model/main-model.php';
+require_once 'libraries/functions.php';
 
 $classifications = getClassifications();
 //var_dump($classifications);
 //exit;
 
-// Build a navigation bar using the $classifications array
-$navList = '<ul>';
-$navList .= "<li><a href='/phpmotors/index.php' tittle='View the PHP Motors home page'>Home</a></li>";
-foreach ($classifications as $classification){
-    $navList .="<li><a href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-}
-$navList .='</ul>';
+ //Build a navigation bar using the $classifications array
+ $navList = navList($classifications);
 //echo $navList;
 //exit;
 
@@ -26,9 +22,14 @@ if ($action == NULL){
 
 switch ($action){
     case 'template':
-    include 'views/template.php';
+        include 'views/template.php';
 
-    break;
+        break;
+
+    case 'error':
+        include 'views/500.php';
+
+        break;
 
     default: 
     include 'views/home.php';

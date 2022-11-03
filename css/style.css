@@ -21,14 +21,14 @@ body header img {
 body nav ul {
   list-style: none;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: right;
   padding: 0;
   background-color: #3a3a3a;
 }
 body nav ul li {
   font-family: Oswald;
-  padding: 0.3rem;
+  padding: 0.3rem 1.2rem;
   font-size: 1.3rem;
 }
 body nav ul li a {
@@ -160,6 +160,15 @@ body #login form #btn, body #registration form #btn, body #classification form #
 }
 body #login p, body #registration p, body #classification p, body #vehicle p {
   font-size: 1.5rem;
+}
+body #classification form input:focus:valid, body #vehicle form input:focus:valid, body #registration form input:focus:valid, body #login form input:focus:valid {
+  /* insert your own styles for valid form input */
+  background-color: rgb(0, 153, 51);
+  color: #ffffff;
+}
+body #classification form input:focus:invalid, body #vehicle form input:focus:invalid, body #registration form input:focus:invalid, body #login form input:focus:invalid {
+  /* insert your own styles for invalid form input */
+  background-color: rgb(252, 182, 231);
 }
 body footer {
   padding-top: 0.5rem;

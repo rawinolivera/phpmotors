@@ -9,6 +9,11 @@
 </head>
 <body>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'?>
+    <nav>
+        <?php // require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php';
+            echo $navList;
+        ?>
+    </nav>
     <main id="home">
         <h1>Welcome to PHP Motors!</h1>
         <section id="dmc">

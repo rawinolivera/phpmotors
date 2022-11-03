@@ -9,6 +9,14 @@
 </head>
 <body>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'?>
+    <nav>
+        <?php // require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php';
+        echo $navList 
+        ?>
+    </nav>
+    <main>
+        <h1>Template</h1>
+    </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
     <script src="/phpmotors/js/motors.js"></script>
 </body>

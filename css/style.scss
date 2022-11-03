@@ -19,13 +19,13 @@ body {
     nav ul {
         list-style: none;
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: right;
         padding: 0;
         background-color: $black;
         li {
             font-family: $baseFont;
-            padding: .3rem;
+            padding: .3rem 1.2rem;
             font-size: 1.3rem;
             a {
                 color: $white;
@@ -118,6 +118,20 @@ body {
             font-size: 1.5rem;
         }
     }
+    #classification, #vehicle, #registration, #login {
+        form {
+            input:focus:valid {
+                /* insert your own styles for valid form input */
+                background-color: rgb(0, 153, 51);
+                color: $white;
+            }
+            input:focus:invalid {
+                /* insert your own styles for invalid form input */
+                background-color: rgb(252, 182, 231);
+            }
+        }
+    }
+
     footer {
         padding-top: .5rem;
         border-top: 3px $black solid;
