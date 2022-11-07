@@ -2,6 +2,9 @@
 
 //This is the Account Controller for the side
 
+// Create or access a Session
+session_start();
+
 // Get data connection file
 require_once '../libraries/connections.php';
 // Get the PHP motors model for use as needed 

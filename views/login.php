@@ -21,7 +21,7 @@
             echo $message;
         }
         ?>
-        <form action="/phpmotors/accounts/index.php" method="post">
+        <form action="/phpmotors/accounts/" method="post">
                 <label class="userinfo" for="userEmail">
                     Email:
                     <input type="email" name="clientEmail" id="userEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> required>
