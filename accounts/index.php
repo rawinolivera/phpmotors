@@ -29,7 +29,7 @@ switch ($action){
         include '../views/registration.php';
         break;
 
-    case 'register':
+    case 'register': //registration process
         // Filter and store the data
         $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -37,6 +37,15 @@ switch ($action){
         $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientEmail = checkEmail($clientEmail);
         $checkPassword = checkPassword($clientPassword);
+
+        // Check for an existing email address
+        $existingEmail = checkExistingEmail($clientEmail);
+
+        if($existingEmail){
+            $message = '<p>The email address already exists. Do you want to login instead?</p>';
+            include '../views/login.php';
+            exit;
+        }
 
         // Check for missing data
         if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)){
@@ -61,6 +70,14 @@ switch ($action){
             exit;
         }
         break;
+
+        //Check and report the result
+        if($regOutcome === 1){
+            setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
+            $message = "<p>Thanks for registering $clientFirstName. Please use your email and password to login.</p>";
+            include '../views/login.php';
+            exit; 
+        }
 
     case 'Login':
         $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
