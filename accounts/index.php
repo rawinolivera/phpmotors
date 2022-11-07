@@ -61,6 +61,7 @@ switch ($action){
 
         // Check and report the results
         if($regOutcome === 1){
+            setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
             $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
             include '../views/login.php';
             exit;
@@ -70,14 +71,6 @@ switch ($action){
             exit;
         }
         break;
-
-        //Check and report the result
-        if($regOutcome === 1){
-            setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
-            $message = "<p>Thanks for registering $clientFirstName. Please use your email and password to login.</p>";
-            include '../views/login.php';
-            exit; 
-        }
 
     case 'Login':
         $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
