@@ -23,7 +23,7 @@
             echo $message;
         }
         ?>
-        <form id="form-reg" action="/phpmotors/accounts/index.php" method="post">
+        <form id="form-reg" method="post" action="/phpmotors/accounts/index.php">
             <label class="userinfo" for="firstName">
                 First Name:
                 <input type="text" name="clientFirstname" id="firstName" <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";}?> required>

@@ -40,6 +40,13 @@ switch ($action){
         $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientEmail = checkEmail($clientEmail);
         $checkPassword = checkPassword($clientPassword);
+        
+        // Check for missing data
+        if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)){
+            $message = '<p>Please provide information for all empty form fields.</p>';
+            include '../views/registration.php';
+            exit;
+        }
 
         // Check for an existing email address
         $existingEmail = checkExistingEmail($clientEmail);
@@ -47,13 +54,6 @@ switch ($action){
         if($existingEmail){
             $message = '<p>The email address already exists. Do you want to login instead?</p>';
             include '../views/login.php';
-            exit;
-        }
-
-        // Check for missing data
-        if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)){
-            $message = '<p>Please provide information for all empty form fields.</p>';
-            include '../views/registration.php';
             exit;
         }
 
@@ -65,8 +65,8 @@ switch ($action){
         // Check and report the results
         if($regOutcome === 1){
             setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
-            $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
-            include '../views/login.php';
+            $_SESSION['message'] = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+            header('Location: /phpmotors/accounts/?action=login');
             exit;
         }else{
             $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
@@ -87,10 +87,35 @@ switch ($action){
             include '../views/login.php';
             exit;
         }
-        
+
+        // A valid password exists, proceed with the login process
+        // Query the client data based on the email address
+        $clientData = getClient($clientEmail);
+        // Compare the password just submitted against
+        // the hashed password for the matching client
+        $hashCheck = password_verify($clientPassword, $clientData['clientPassword']);
+        // If the hashes don't match create an error
+        // and return to the login view
+        if(!$hashCheck) {
+        $message = '<p>Please check your password and try again.</p>';
+        include '../view/login.php';
+        exit;
+        }
+
+        // a valid user exists, log them in
+        $_SESSION['loggedin'] = true;
+        //Removes the password from the array
+        array_pop($clientData);
+        // Store the arrey into the session
+        $_SESSION['clienteData'] = $clientData;
+        // Send them to the admin byu
+        include '../views/admin.php';
+        exit;
         break;
         
-    case 'home':
+    case 'login':
+        include '../views/login.php';
+        break;
     default: 
         include '../views/login.php';
 

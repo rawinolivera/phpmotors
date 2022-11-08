@@ -17,11 +17,11 @@
     <main id="login">
         <h1>Sign in</h1>
         <?php
-        if (isset($message)){
-            echo $message;
+        if (isset($_SESSION['message'])){
+            echo $_SESSION['message'];
         }
         ?>
-        <form action="/phpmotors/accounts/" method="post">
+        <form action="/phpmotors/accounts/" method="POST">
                 <label class="userinfo" for="userEmail">
                     Email:
                     <input type="email" name="clientEmail" id="userEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> required>
