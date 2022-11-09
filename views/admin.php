@@ -2,7 +2,6 @@
     if(!isset($_SESSION['loggedin'])){
         header('Location: /phpmotors/accounts/');
     }
-    $clientLevel = $_SESSION['clientData']['clientLevel'];
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
