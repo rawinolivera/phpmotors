@@ -2,6 +2,7 @@
     if(!isset($_SESSION['loggedin'])){
         header('Location: /phpmotors/accounts/');
     }
+    $clientLevel = $_SESSION['clientData']['clientLevel'];
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,21 +20,23 @@
         ?>
     </nav>
     <main>
-        <h1><?php echo $_SESSION['clientData']['clientFirstname'].' '.['clientLastname']; ?></h1>
-        <p>You are looged in.</p>
+        <h1><?php echo $_SESSION['clientData']['clientFirstname'].' '.$_SESSION['clientData']['clientLastname']; ?></h1>
+        <p>You are logged in.</p>
         <ul>
             <li>First name: <?php echo $_SESSION['clientData']['clientFirstname']; ?></li>
             <li>Last name: <?php echo $_SESSION['clientData']['clientLastname']; ?></li>
             <li>Email: <?php echo $_SESSION['clientData']['clientEmail']; ?></li>
         </ul>
+        <section>
         <?php
             $clientLevel = $_SESSION['clientData']['clientLevel'];
-            if($clientLevel === 1){
+            if($clientLevel > 1){
                 echo "<h2>Inventory Management</h2>
                 <p>Use this link to manage the inventory.</p>
                 <p><a href='../vehicles/'>Vehicle Management</a></p>";
             }
         ?>
+        </section>
         
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>

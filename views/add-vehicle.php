@@ -1,4 +1,10 @@
 <?php
+    if(!isset($_SESSION['loggedin'])){
+        header('Location: /phpmotors');
+    }else if($_SESSION['clientData']['clientLevel'] == 1){
+        header('Location: /phpmotors');
+    }
+?><?php
 // Build the selesct list
 $classificationList = '<select id="list" name="classificationId" required>';
 $classificationList .='<option value="">Choose from the List</option>';

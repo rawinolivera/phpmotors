@@ -98,7 +98,7 @@ switch ($action){
         // and return to the login view
         if(!$hashCheck) {
         $message = '<p>Please check your password and try again.</p>';
-        include '../view/login.php';
+        include '../views/login.php';
         exit;
         }
 
@@ -107,7 +107,7 @@ switch ($action){
         //Removes the password from the array
         array_pop($clientData);
         // Store the arrey into the session
-        $_SESSION['clienteData'] = $clientData;
+        $_SESSION['clientData'] = $clientData;
         // Send them to the admin byu
         include '../views/admin.php';
         exit;
@@ -116,10 +116,20 @@ switch ($action){
     case 'login':
         include '../views/login.php';
         break;
+
+    case 'logout':
+        session_destroy();
+        header('location: /phpmotors');
+        break;
+
+    case 'user':
+        include '../views/admin.php';
+        break;
+
     default: 
         include '../views/login.php';
-
     break;
 
     
 }
+?>
