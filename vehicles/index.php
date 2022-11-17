@@ -93,7 +93,22 @@ switch ($action){
         }
         break;
 
+    /* * ********************************** 
+    * Get vehicles by classificationId 
+    * Used for starting Update & Delete process 
+    * ********************************** */ 
+    case 'getInventoryItems':
+
+        $classificationId = filter_input(INPUT_GET, '$classificationId', FILTER_SANITIZE_NUMBER_INT);
+        $inventoryArray = getInventoryByClassification($classificationId);
+        echo json_encode($inventoryArray);
+
+        break;
+
     default: 
+        $classificationList = buildClassificationList($classificacion)
+
+
     include '../views/vehicle-man.php';
 }
 
