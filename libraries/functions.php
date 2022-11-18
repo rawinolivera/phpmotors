@@ -38,4 +38,11 @@ function buildClassificationList($classification){
     return $classificationList;
 }
 
+function getInventoryByClassification($classificationId){
+    $db = phpmotorsConnect();
+    $sql = 'SELECT * FROM inventory WHERE classificationId = :classificationId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue('')
+}
+
 ?>
