@@ -1,9 +1,14 @@
 <?php
     if(!isset($_SESSION['loggedin'])){
         header('Location: /phpmotors');
+        exit;
     }else if($_SESSION['clientData']['clientLevel'] == 1){
         header('Location: /phpmotors');
     }
+
+    if (isset($_SESSION['message'])) {
+        $message = $_SESSION['message'];
+       }
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +36,10 @@
                 echo $message;
             }
             if(isset($classificationList)){
+                echo '<section>';
                 echo '<h2>Vehicles by classification</h2>';
-                echo '<p>Choose a classification to see those vehicles</p>'
+                echo '<p>Choose a classification to see those vehicles</p>';
+                echo '</section>';
                 echo $classificationList;
             }
         ?>
@@ -46,3 +53,4 @@
     <script src="../js/inventory.js"></script>
 </body>
 </html>
+<?php unset($_SESSION['message']); ?>

@@ -27,6 +27,11 @@
             <li>Email: <?php echo $_SESSION['clientData']['clientEmail']; ?></li>
         </ul>
         <section>
+            <h2>Account Management</h2>
+            <p>Use this link to update account information</p>
+            <p><a href="../account/action=accountUpdate?client=<?php $_SESSION['clienteId'] ?>">Update Account Information</a></p>
+        </section>
+        <section>
         <?php
             $clientLevel = $_SESSION['clientData']['clientLevel'];
             if($clientLevel > 1){
@@ -36,6 +41,7 @@
             }
         ?>
         </section>
+        
         
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
