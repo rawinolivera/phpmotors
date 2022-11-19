@@ -26,8 +26,23 @@
             <li><a href="index.php?action=add-classif-page">Add Classification</a></li>
             <li><a href="index.php?action=add-vehicle-page">Add Vehicle</a></li>
         </ul>
+        <?php 
+            if(isset($message)){
+                echo $message;
+            }
+            if(isset($classificationList)){
+                echo '<h2>Vehicles by classification</h2>';
+                echo '<p>Choose a classification to see those vehicles</p>'
+                echo $classificationList;
+            }
+        ?>
+        <noscript>
+            <p>Javascript Must Be Enabled To Use This Page.</p>
+        </noscript>
+        <table id='inventoryDisplay'></table>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>
     <script src="/phpmotors/js/motors.js"></script>
+    <script src="../js/inventory.js"></script>
 </body>
 </html>

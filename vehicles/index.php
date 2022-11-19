@@ -106,7 +106,7 @@ switch ($action){
         break;
 
     default: 
-        $classificationList = buildClassificationList($classificacion)
+        $classificationList = buildClassificationList($classificacion);
 
 
     include '../views/vehicle-man.php';
