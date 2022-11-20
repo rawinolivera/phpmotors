@@ -110,7 +110,7 @@ body {
             }
         }
     }
-    #login, #registration, #classification, #vehicle {
+    #login, #registration, #classification, #vehicle, #client-update {
         form {
             @include form-base;
         }
@@ -118,7 +118,7 @@ body {
             font-size: 1.5rem;
         }
     }
-    #classification, #vehicle, #registration, #login {
+    #classification, #vehicle, #registration, #login, #client-update {
         form {
             input:focus:valid {
                 /* insert your own styles for valid form input */

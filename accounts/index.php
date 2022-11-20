@@ -126,6 +126,44 @@ switch ($action){
         include '../views/admin.php';
         break;
 
+    case 'accountUpdate':
+        include '../views/client-update.php';
+        break;
+
+    case 'userUpdate':
+        $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+        $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+
+        if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)){
+            $message = '<p>Please provide information for all empty form fields.</p>';
+            include '../views/client-update.php';
+            exit;
+        }
+
+    case 'passChange':
+        $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $checkPassword = checkPassword($clientPassword);
+
+        if(empty($checkPassword)){
+            $message = '<p>Please provide a new password.</p>';
+            include '../views/client-update.php';
+            exit;
+        }
+
+        $clientData = getClient($clientId);
+        // Compare the password just submitted against
+        // the hashed password for the matching client
+        $hashCheck = password_verify($clientPassword, $clientData['clientPassword']);
+        // If the hashes don't match create an error
+        // and return to the login view
+        if(!$hashCheck) {
+        $message = '<p>Please check your password and try again.</p>';
+        include '../views/login.php';
+        exit;
+        }
+
     default: 
         include '../views/login.php';
     break;

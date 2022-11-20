@@ -29,7 +29,7 @@
         <section>
             <h2>Account Management</h2>
             <p>Use this link to update account information</p>
-            <p><a href="../account/action=accountUpdate?client=<?php $_SESSION['clienteId'] ?>">Update Account Information</a></p>
+            <p><a href="../accounts/?action=accountUpdate">Update Account Information</a></p>
         </section>
         <section>
         <?php
