@@ -22,28 +22,38 @@
         <h1>Manage Account</h1>
         <section>
             <h2>Update Account</h2>
+            <?php
+                if (isset($message)){
+                    echo $message;
+                }
+            ?>
             <form id="form-reg" method="post" action="/phpmotors/accounts/index.php">
             <label class="userinfo" for="firstName">
                 First Name:
-                <input type="text" name="clientFirstname" id="firstName" <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} elseif(isset($_SESSION['clientData']['clientFirstname'])) {echo "value=".$_SESSION['clientData']['clientFirstname']; } ?> required>
+                <input type="text" name="clientFirstname" id="firstName" <?php if(isset($_SESSION['clientData']['clientFirstname'])) {echo "value=".$_SESSION['clientData']['clientFirstname']; } ?> required>
             </label>
             <label class="userinfo" for="lastName">
                 Last Name:
-                <input type="text" name="clientLastname" id="lastName" <?php if(isset($clientLastname)){echo "value='$clientLastname'";} elseif(isset($_SESSION['clientData']['clientLastname'])) {echo "value=".$_SESSION['clientData']['clientLastname']; } ?> required>
+                <input type="text" name="clientLastname" id="lastName" <?php if(isset($_SESSION['clientData']['clientLastname'])) {echo "value=".$_SESSION['clientData']['clientLastname']; } ?> required>
             </label>
             <label class="userinfo" for="userEmail">
                 Email:
-                <input type="email" name="clientEmail" id="userEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} elseif(isset($_SESSION['clientData']['clientEmail'])) {echo "value=".$_SESSION['clientData']['clientEmail']; } ?> required>
+                <input type="email" name="clientEmail" id="userEmail" <?php if(isset($_SESSION['clientData']['clientEmail'])) {echo "value=".$_SESSION['clientData']['clientEmail']; } ?> required>
             </label>
             <input type="submit" name="submit" id="btn" value="Update Info">
             <input type="hidden" name="action" value="userUpdate">
-            <input type="hidden" name="clienteId" value="<?php 
+            <input type="hidden" name="clientId" value="<?php 
             if(isset($_SESSION['clientData'])){ echo $_SESSION['clientData']['clientId'];} ?>">
         </form>
         </section>
         
         <section>
             <h2>Update Password</h2>
+            <?php
+                if (isset($message2)){
+                    echo $message2;
+                }
+            ?>
             <form id="form-reg" method="post" action="/phpmotors/accounts/index.php">
             <p><span>Password must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span></p>
             <p><span>*note your original password will be changed.</span></p>
@@ -53,7 +63,7 @@
             </label>
             <input type="submit" name="submit" id="btn" value="Update Password">
             <input type="hidden" name="action" value="passChange">
-            <input type="hidden" name="clienteId" value="<?php 
+            <input type="hidden" name="clientId" value="<?php 
             if(isset($_SESSION['clientData'])){ echo $_SESSION['clientData']['clientId'];} ?>">
         </form>
         </section>

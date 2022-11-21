@@ -142,27 +142,50 @@ switch ($action){
             exit;
         }
 
+        $userUpdate = updateUser($clientId, $clientFirstname, $clientLastname, $clientEmail);
+        if($userUpdate === 1){
+            
+            $fullClient = getDataclient($clientId);
+            array_pop($fullClient);
+            // Store the array into the session
+            $_SESSION['clientData'] = $fullClient;
+            $message = "<p>User information has been updated successfully.</p>";
+            $_SESSION['message'] = $message;
+            header('location: /phpmotors/accounts/?action=user');
+            exit;
+        }else{
+            $message = "<p>Sorry, user information could not be updated. Please try again.</p>";
+            include '../views/client-update.php';
+            exit;
+        }
+        break;
+
+
     case 'passChange':
+        $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
         $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $checkPassword = checkPassword($clientPassword);
 
         if(empty($checkPassword)){
-            $message = '<p>Please provide a new password.</p>';
+            $message2 = '<p>Please provide a valid password.</p>';
             include '../views/client-update.php';
             exit;
         }
 
-        $clientData = getClient($clientId);
-        // Compare the password just submitted against
-        // the hashed password for the matching client
-        $hashCheck = password_verify($clientPassword, $clientData['clientPassword']);
-        // If the hashes don't match create an error
-        // and return to the login view
-        if(!$hashCheck) {
-        $message = '<p>Please check your password and try again.</p>';
-        include '../views/login.php';
-        exit;
+        //Hash the checked password
+        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+        $passChanged = changePassword($clientId, $hashedPassword);
+        if($passChanged === 1){
+            $message = "<p>Client Password has been updated successfully.</p>";
+            $_SESSION['message'] = $message;
+            header('location: /phpmotors/accounts/?action=user');
+            exit;
+        }else{
+            $message2 = "<p>Sorry, Client Password could not be updated. Please try again.</p>";
+            include '../views/client-update.php';
+            exit;
         }
+        break;
 
     default: 
         include '../views/login.php';

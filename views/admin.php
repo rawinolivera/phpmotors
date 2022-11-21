@@ -2,6 +2,10 @@
     if(!isset($_SESSION['loggedin'])){
         header('Location: /phpmotors/accounts/');
     }
+
+    if (isset($_SESSION['message'])) {
+        $message = $_SESSION['message'];
+    }
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +25,11 @@
     <main>
         <h1><?php echo $_SESSION['clientData']['clientFirstname'].' '.$_SESSION['clientData']['clientLastname']; ?></h1>
         <p>You are logged in.</p>
+        <?php
+            if(isset($message)){
+                echo $message;
+            }
+        ?>
         <ul>
             <li>First name: <?php echo $_SESSION['clientData']['clientFirstname']; ?></li>
             <li>Last name: <?php echo $_SESSION['clientData']['clientLastname']; ?></li>
@@ -48,3 +57,4 @@
     <script src="/phpmotors/js/motors.js"></script>
 </body>
 </html>
+<?php unset($_SESSION['message']); ?>
