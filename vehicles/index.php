@@ -189,6 +189,18 @@ switch ($action){
         include '../views/classification.php';
         break;
 
+    case 'vehicle-detail':
+        $vehicleId = filter_input(INPUT_GET, 'vehicleId', FILTER_SANITIZE_NUMBER_INT);
+        $vehicleSelected = getVehicleDetailInfo($vehicleId);
+        if(!count($vehicleSelected)){
+            $message = "<p>Sorry, the vehicle selected could not be found.</p>";
+        } else {
+            $vehicleSelectedDisplay = buildVehicleSelectedDisplay($vehicleSelected);
+        }
+
+        include '../views/vehicle-detail.php';
+        break;
+
     default: 
         $classificationList = buildClassificationList($classLists);
 

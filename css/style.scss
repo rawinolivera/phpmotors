@@ -1,12 +1,12 @@
 @import "setup";
-
-html {
+html{
     box-sizing: border-box;
-}
-
-*, *:before, *:after {
+   }
+   
+   *, *:before, *:after{
     box-sizing: inherit;
-}
+   }
+
 
 body {
     padding: 0;
@@ -27,13 +27,13 @@ body {
     nav ul {
         list-style: none;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-around;
         align-items: right;
         padding: 0;
         background-color: $black;
         li {
             font-family: $baseFont;
-            padding: .3rem 1.2rem;
+            padding: .3rem .4rem;
             font-size: 1.3rem;
             a {
                 color: $white;
@@ -49,23 +49,29 @@ body {
         h1 {
             font-family: $accentFont;
         }
-        #inv-display{
+        #inv-display {
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
-       }
-       
-       #inv-display li{
+        }
+        #inv-display li {
             margin-bottom: .5em;
             border: 1px #ccc solid;
             list-style-type: none;
             flex: 1 1 auto;
-       }
-       
-       #inv-display li img {
-           max-width: 100%;
-       }
+            text-align: center;
+            border-radius: 15px;
+            margin: .5rem;
+        }
+        #inv-display li img {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+        #inv-display li hr {
+            border-top: 3px solid $black;
+            width: 100%;
+        }
         section h2, p, li, h3 {
             font-family: $coolFont;
         }
@@ -173,6 +179,11 @@ body {
 
 @media only screen and (min-width: 36rem) {
     html {
+        box-sizing: border-box;
+       
+       *, *:before, *:after{
+        box-sizing: inherit;
+       }
         background-image: url(/phpmotors/images/site/small_check.jpg);
         body {
             background-color: $white;
@@ -182,12 +193,36 @@ body {
             header h2 {
                 right: 3rem;
             }
-            header nav ul {
-                justify-content: left;
+            nav ul {
+                justify-content: flex-start;
                 li {
                     padding: .5rem 1.2rem;
                 }
             }
+
+            #inv-display {
+                flex-flow: row wrap;
+                justify-content: flex-start;
+            }
+
+            #inv-display h2 {
+                font-size: 1rem;
+            }
+
+            #inv-display li {
+                max-width: 200px;
+                flex: 1 0 auto;
+                text-align: center;
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            #inv-display div {
+                width: 100%;
+            }
+
             #home #dmc {
                 .list {
                     z-index: 1;

@@ -29,14 +29,14 @@ body header img {
 body nav ul {
   list-style: none;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: right;
   padding: 0;
   background-color: #3a3a3a;
 }
 body nav ul li {
   font-family: Oswald;
-  padding: 0.3rem 1.2rem;
+  padding: 0.3rem 0.4rem;
   font-size: 1.3rem;
 }
 body nav ul li a {
@@ -63,9 +63,17 @@ body main #inv-display li {
   border: 1px #ccc solid;
   list-style-type: none;
   flex: 1 1 auto;
+  text-align: center;
+  border-radius: 15px;
+  margin: 0.5rem;
 }
 body main #inv-display li img {
   max-width: 100%;
+  border-radius: 15px;
+}
+body main #inv-display li hr {
+  border-top: 3px solid #3a3a3a;
+  width: 100%;
 }
 body main section h2, body main p, body main li, body main h3 {
   font-family: Love Ya Like A Sister;
@@ -205,7 +213,11 @@ body footer p {
 
 @media only screen and (min-width: 36rem) {
   html {
+    box-sizing: border-box;
     background-image: url(/phpmotors/images/site/small_check.jpg);
+  }
+  html *, html *:before, html *:after {
+    box-sizing: inherit;
   }
   html body {
     background-color: #ffffff;
@@ -216,11 +228,30 @@ body footer p {
   html body header h2 {
     right: 3rem;
   }
-  html body header nav ul {
-    justify-content: left;
+  html body nav ul {
+    justify-content: flex-start;
   }
-  html body header nav ul li {
+  html body nav ul li {
     padding: 0.5rem 1.2rem;
+  }
+  html body #inv-display {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+  html body #inv-display h2 {
+    font-size: 1rem;
+  }
+  html body #inv-display li {
+    max-width: 200px;
+    flex: 1 0 auto;
+    text-align: center;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  html body #inv-display div {
+    width: 100%;
   }
   html body #home #dmc .list {
     z-index: 1;
