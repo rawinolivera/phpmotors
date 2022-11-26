@@ -15,7 +15,6 @@
         ?>
     </nav>
     <main>
-        <h1>Template</h1>
         <?php if(isset($message)){
             echo $message;
         }
