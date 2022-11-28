@@ -201,6 +201,46 @@ body #classification form input:focus:invalid, body #vehicle form input:focus:in
   /* insert your own styles for invalid form input */
   background-color: rgb(252, 182, 231);
 }
+body #veh-detail img {
+  max-width: 575px;
+  width: 100%;
+}
+body #veh-detail h1 {
+  font-size: 2.2rem;
+}
+body #veh-detail .price {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+body #veh-detail h2 {
+  margin: 0.8rem 0;
+  font-size: 1.7rem;
+}
+body #veh-detail .description {
+  background-color: rgb(238, 244, 248);
+  padding: 0.8rem;
+  margin: 0;
+}
+body #veh-detail .stock {
+  background-color: rgb(238, 244, 248);
+  padding: 0.8rem;
+  margin: 0;
+}
+body #veh-detail .color {
+  padding: 0.8rem;
+  margin: 0;
+}
+body #veh-detail .stock {
+  padding: 0.8rem;
+  margin: 0 0 0.5rem 0;
+}
+body #classification a {
+  text-decoration: none;
+  color: #3a3a3a;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
 body footer {
   padding-top: 0.5rem;
   border-top: 3px #3a3a3a solid;
@@ -262,6 +302,21 @@ body footer p {
   html body #home #reviews li {
     font-size: 1rem;
   }
+  html body #veh-detail .price {
+    margin: 0.5rem 0;
+  }
+  html body #veh-detail h2 {
+    margin: 0.8rem 0;
+  }
+  html body #veh-detail .description {
+    font-size: 1.2rem;
+  }
+  html body #veh-detail .stock {
+    font-size: 1.2rem;
+  }
+  html body #veh-detail .color {
+    font-size: 1.2rem;
+  }
 }
 @media only screen and (min-width: 54rem) {
   #home {
@@ -296,6 +351,38 @@ body footer p {
   }
   #home #reviews li {
     line-height: 2.2rem;
+  }
+
+  #veh-detail section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #veh-detail section img {
+    grid-row: 1/5;
+    padding: 0.5rem;
+    max-width: 40rem;
+  }
+  #veh-detail section .color {
+    grid-row: 3/4;
+    padding: 0.5rem 1rem;
+    vertical-align: middle;
+  }
+  #veh-detail section .price {
+    grid-column: 1/2;
+    padding: 0.5rem;
+  }
+  #veh-detail section h2 {
+    grid-row: 1/2;
+    padding: 0.5rem 0 0;
+  }
+  #veh-detail section .description {
+    grid-row: 2/3;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    line-height: 1.6;
+  }
+  #veh-detail section .stock {
+    padding: 0.5rem 0 0rem 1rem;
+    grid-row: 4/5;
   }
 }
 

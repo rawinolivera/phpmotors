@@ -14,7 +14,7 @@
         echo $navList 
         ?>
     </nav>
-    <main>
+    <main id="classification">
         <h1><?php echo $classificationName; ?> vehicles</h1>
         <?php if(isset($message)){
             echo $message;

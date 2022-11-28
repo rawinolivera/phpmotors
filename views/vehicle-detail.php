@@ -14,7 +14,7 @@
         echo $navList 
         ?>
     </nav>
-    <main>
+    <main id="veh-detail">
         <?php if(isset($message)){
             echo $message;
         }

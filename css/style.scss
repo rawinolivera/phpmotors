@@ -165,6 +165,53 @@ body {
             }
         }
     }
+    #veh-detail img {
+                max-width: 575px;
+                width: 100%;
+    }
+
+    #veh-detail {
+        h1 {
+            font-size: 2.2rem;
+        }
+        .price {
+            font-size: 1.5rem;
+            margin: .5rem 0;
+            font-weight: 600;
+        }
+        h2 {
+            margin: .8rem 0;
+            font-size: 1.7rem;
+        }
+        .description {
+            background-color: rgb(238, 244, 248);
+            padding: .8rem;
+            margin: 0;
+        }
+        .stock {
+            background-color: rgb(238, 244, 248);
+            padding: .8rem;
+            margin: 0;
+        }
+        .color {
+            padding: .8rem;
+            margin: 0;
+        }
+        .stock {
+            padding: .8rem;
+            margin: 0 0 0.5rem 0;
+
+        }
+    }
+
+    #classification {
+        a {
+            text-decoration: none;
+            color: $black;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+    }
 
     footer {
         padding-top: .5rem;
@@ -234,6 +281,23 @@ body {
             #home #reviews li {
                 font-size: 1rem;
             }
+            #veh-detail {
+                .price {
+                    margin: .5rem 0;
+                }  
+                h2 {
+                    margin: .8rem 0;
+                }
+                .description {
+                    font-size: 1.2rem;
+                }
+                .stock {
+                    font-size: 1.2rem;
+                }
+                .color {
+                    font-size: 1.2rem;
+                }
+            }
         }
     }
 }
@@ -270,6 +334,37 @@ body {
             li {
                 line-height: 2.2rem;
             }
+        }
+    }
+    #veh-detail section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        img {
+            grid-row: 1 / 5;
+            padding: .5rem;
+            max-width: 40rem;
+        }
+        .color {
+            grid-row: 3 / 4;
+            padding: .5rem 1rem;
+            vertical-align: middle;
+        }
+        .price {
+            grid-column: 1 / 2;
+            padding: .5rem;
+        }
+        h2 {
+            grid-row: 1 / 2;
+            padding: .5rem 0 0;
+        }
+        .description {
+            grid-row: 2 / 3;
+            padding: .5rem 2.5rem .5rem 1rem;
+            line-height: 1.6;
+        }
+        .stock {
+            padding: .5rem 0 0rem 1rem;
+            grid-row: 4 / 5;
         }
     }
  }

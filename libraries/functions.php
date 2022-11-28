@@ -54,10 +54,10 @@ function buildVehiclesDisplay($vehicles){
     $dv = '<ul id="inv-display">';
     foreach ($vehicles as $vehicle){
         $dv .= '<li>';
-        $dv .= "<a href='/phpmotors/vehicles/?action=vehicle-detail&vehicleId=$vehicle[invId]'><img src='/phpmotors$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+        $dv .= "<a href='/phpmotors/vehicles/?action=vehicle-detail&vehicleId=$vehicle[invId]'><img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
     $dv .= '<hr>';
     $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
-    $dv .= "<span>$vehicle[invPrice]</span></a>";
+    $dv .= "<span>$". number_format($vehicle['invPrice']) ."</span></a>";
     $dv .= '</li>';
     }
     $dv .= '</ul>';
@@ -69,12 +69,12 @@ function buildVehicleSelectedDisplay($vehicleSelected){
     foreach($vehicleSelected as $vehicleData){
         $dvs = "<h1>$vehicleData[invMake] $vehicleData[invModel]</h1>";
         $dvs .= "<section>";
-        $dvs .= "<img src='/phpmotors$vehicleData[invImage]' alt='Image of $vehicleData[invMake] $vehicleData[invModel] on phpmotors.com'></img>";
-        $dvs .= "<p>Price: $<span>$vehicleData[invPrice]</span></p>";
+        $dvs .= "<img src='$vehicleData[invImage]' alt='Image of $vehicleData[invMake] $vehicleData[invModel] on phpmotors.com'></img>";
+        $dvs .= "<p class='price'>Price: $". number_format($vehicleData['invPrice']) ."<span></span></p>";
         $dvs .= "<h2>$vehicleData[invMake] $vehicleData[invModel] Detail</h2>";
-        $dvs .= "<p>$vehicleData[invDescription]</p>";
-        $dvs .= "<p>Color: <span>$vehicleData[invColor]</span></p>";
-        $dvs .= "<p># In Stock: <span>$vehicleData[invStock]</span></p>";
+        $dvs .= "<p class='description'>$vehicleData[invDescription]</p>";
+        $dvs .= "<p class='color'>Color: <span>$vehicleData[invColor]</span></p>";
+        $dvs .= "<p class='stock'># In Stock: <span>$vehicleData[invStock]</span></p>";
     }
     $dvs .= "</section>";
     return $dvs;
