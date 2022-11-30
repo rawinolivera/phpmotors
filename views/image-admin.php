@@ -19,17 +19,19 @@ if (isset($_SESSION['message'])) {
         echo $navList 
         ?>
     </nav>
-    <main>
+    <main id="uploads">
         <h1>Image Management</h1>
         <p>Welcome to  the Image Managment Page</p>
         <p>Please, choose one of the options presented bellow!</p>
 
-        <h2>Add New Vehicle Image</h2>
-<?php
-    if (isset($message)) {
-        echo $message;
-    } 
- ?>
+        <section>
+            <h2>Add New Vehicle Image</h2>
+            <?php
+                if (isset($message)) {
+                    echo $message;
+                } 
+            ?>
+        </section>
 
     <form action="/phpmotors/uploads/" method="post" enctype="multipart/form-data">
         <label for="invItem">Vehicle</label>
@@ -49,12 +51,14 @@ if (isset($_SESSION['message'])) {
 
     <hr>
 
-    <h2>Existing Images</h2>
-    <p class="notice">If deleting an image, delete the thumbnail too and vice versa.</p>
-    <?php
-    if (isset($imageDisplay)) {
-        echo $imageDisplay;
-    } ?>
+    <section>
+        <h2>Existing Images</h2>
+        <p class="notice">If deleting an image, delete the thumbnail too and vice versa.</p>
+        <?php
+        if (isset($imageDisplay)) {
+            echo $imageDisplay;
+        } ?>
+    </section>
 
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php' ?>

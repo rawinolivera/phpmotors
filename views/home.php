@@ -24,7 +24,7 @@
                 <p>Fuzzy dice!</p>
                 <button id="btn1">Own Today</button>
             </div>
-                <img src="/phpmotors/images/delorean.jpg" alt="Car">
+                <img src="/phpmotors/images/vehicles/delorean.jpg" alt="Car">
                 <div class="button">
                     <button>Own Today</button>
                 </div>

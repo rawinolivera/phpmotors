@@ -9,6 +9,7 @@ require_once '../libraries/connections.php';
 require_once '../model/vehicles-model.php';
 require_once '../model/main-model.php';
 require_once '../libraries/functions.php';
+require_once '../model/uploads-model.php';
 //arrays
 $classifications = getClassifications(); //query the name
 $classLists = getClassList();   //query the whole data
@@ -192,10 +193,11 @@ switch ($action){
     case 'vehicle-detail':
         $vehicleId = filter_input(INPUT_GET, 'vehicleId', FILTER_SANITIZE_NUMBER_INT);
         $vehicleSelected = getVehicleDetailInfo($vehicleId);
+        $thumbnails = getThumbnailImages($vehicleId);
         if(!count($vehicleSelected)){
             $message = "<p>Sorry, the vehicle selected could not be found.</p>";
         } else {
-            $vehicleSelectedDisplay = buildVehicleSelectedDisplay($vehicleSelected);
+            $vehicleSelectedDisplay = buildVehicleSelectedDisplay($vehicleSelected, $thumbnails);
         }
 
         include '../views/vehicle-detail.php';

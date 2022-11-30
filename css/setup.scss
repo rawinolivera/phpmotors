@@ -63,4 +63,9 @@ $coolFont: Love Ya Like A Sister;
         font-size: 1.2rem;
         padding: .5rem 1rem;
     }
+
+    @keyframes beat {
+        0% {transform: scale(1.7);}
+        100% {transform: none;}
+    }
 }
