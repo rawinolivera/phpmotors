@@ -79,7 +79,7 @@ function buildVehicleSelectedDisplay($vehicleSelected, $thumbnails){
         $dvs .= "<p class='price'>Price: $". number_format($vehicleData['invPrice']) ."<span></span></p>";
         $dvs .= "<p class='description'>$vehicleData[invDescription]</p>";
         $dvs .= "<p class='color'>Color: <span>$vehicleData[invColor]</span></p>";
-        $dvs .= "<p class='stock'># In Stock: <span>$vehicleData[invStock]</span></p>";
+     //   $dvs .= "<p class='stock'># In Stock: <span>$vehicleData[invStock]</span></p>";
         $dvs .=  "</article>";
     }
     $dvs .= "</section>";
@@ -244,5 +244,18 @@ function resizeImage($old_image_path, $new_image_path, $max_width, $max_height) 
      imagedestroy($old_image);
 } // ends resizeImage function
 
+// Buind the search results
+function buildSearchResults($sResults){
+    $searchDisplay = '<section name="sResult" id="sResult">';
+    foreach ($sResults as $sResult){
+        $searchDisplay .= "<article>";
+        $searchDisplay .= "<a href='/phpmotors/vehicles/?action=vehicle-detail&vehicleId=$sResult[invId]'><h2>$sResult[invYear] $sResult[invMake] $sResult[invModel]</h2></a>";
+        $searchDisplay .= "<img src='$sResult[imgPath]' title='$sResult[invMake] $sResult[invModel] image on PHP Motors.com' alt='$sResult[invMake] $sResult[invModel] image on PHP Motors.com'>";
+        $searchDisplay .= "<p>$sResult[invDescription]</p>";
+        $searchDisplay .= "</article>";
+    }
+    $searchDisplay .= '</section>';
+    return $searchDisplay;
+}
 
 ?>
