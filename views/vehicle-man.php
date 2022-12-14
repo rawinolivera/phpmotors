@@ -39,8 +39,8 @@
                 echo '<section>';
                 echo '<h2>Vehicles by classification</h2>';
                 echo '<p>Choose a classification to see those vehicles</p>';
-                echo '</section>';
                 echo $classificationList;
+                echo '</section>';
             }
         ?>
         <noscript>

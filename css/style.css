@@ -13,18 +13,28 @@ body {
   padding: 0;
   margin: 0;
 }
-body header h2 {
-  font-family: Londrina Shadow;
-  display: inline-block;
-  position: absolute;
-  right: 1rem;
+body header {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
 }
-body header h2 a {
+body header #logo {
+  border-radius: 20px;
+}
+body header #top-mark {
+  grid-column: 2/3;
+  font-family: Londrina Shadow;
+  justify-self: end;
+}
+body header #top-mark a {
   text-decoration: none;
   color: #3a3a3a;
 }
-body header img {
-  border-radius: 20px;
+body header #lupa {
+  width: 1.5rem;
+  grid-column: 3/4;
+  align-content: center;
+  margin: 0.5rem 0.25rem 0 0.5rem;
 }
 body nav ul {
   list-style: none;
@@ -141,31 +151,30 @@ body main #upgrades .hub h3 {
 body main #upgrades .bumper, body main #upgrades .hub {
   margin-top: 2rem;
 }
-body #veh-detail section aside {
+body #veh-detail section aside img {
   display: none;
 }
-body #login form label, body #registration form label, body #classification form label, body #vehicle form label, body #client-update form label, body #uploads form label {
+body #login form label, body #registration form label, body #classification form label, body #vehicle form label, body #client-update form label, body #uploads form label, body #search form label {
   display: block;
   font-weight: 600;
   font-family: Oswald;
   font-size: 1.2rem;
 }
-body #login form label input, body #login form label textarea, body #registration form label input, body #registration form label textarea, body #classification form label input, body #classification form label textarea, body #vehicle form label input, body #vehicle form label textarea, body #client-update form label input, body #client-update form label textarea, body #uploads form label input, body #uploads form label textarea {
+body #login form label input, body #login form label textarea, body #registration form label input, body #registration form label textarea, body #classification form label input, body #classification form label textarea, body #vehicle form label input, body #vehicle form label textarea, body #client-update form label input, body #client-update form label textarea, body #uploads form label input, body #uploads form label textarea, body #search form label input, body #search form label textarea {
   display: block;
   font-family: Love Ya Like A Sister;
   font-size: 1rem;
   padding: 0.5rem;
   font-weight: 600;
-  max-width: 18rem;
   width: 100%;
 }
-body #login form p, body #registration form p, body #classification form p, body #vehicle form p, body #client-update form p, body #uploads form p {
+body #login form p, body #registration form p, body #classification form p, body #vehicle form p, body #client-update form p, body #uploads form p, body #search form p {
   margin: 0;
   font-weight: 600;
   font-family: Oswald;
   font-size: 1.2rem;
 }
-body #login form #list, body #registration form #list, body #classification form #list, body #vehicle form #list, body #client-update form #list, body #uploads form #list {
+body #login form #list, body #registration form #list, body #classification form #list, body #vehicle form #list, body #client-update form #list, body #uploads form #list, body #search form #list {
   display: block;
   font-family: Love Ya Like A Sister;
   font-size: 1rem;
@@ -175,7 +184,7 @@ body #login form #list, body #registration form #list, body #classification form
   width: 100%;
   margin-bottom: 0.5rem;
 }
-body #login form #showBtn, body #registration form #showBtn, body #classification form #showBtn, body #vehicle form #showBtn, body #client-update form #showBtn, body #uploads form #showBtn {
+body #login form #showBtn, body #registration form #showBtn, body #classification form #showBtn, body #vehicle form #showBtn, body #client-update form #showBtn, body #uploads form #showBtn, body #search form #showBtn {
   padding: 0.5rem 1rem;
   background-color: #8d8d8d;
   color: #ffffff;
@@ -184,7 +193,7 @@ body #login form #showBtn, body #registration form #showBtn, body #classificatio
   margin: 0;
   border-radius: 0.5rem;
 }
-body #login form #btn, body #registration form #btn, body #classification form #btn, body #vehicle form #btn, body #client-update form #btn, body #uploads form #btn {
+body #login form #btn, body #registration form #btn, body #classification form #btn, body #vehicle form #btn, body #client-update form #btn, body #uploads form #btn, body #search form #btn {
   background-color: #4c96d7;
   margin-top: 0.5rem;
   font-family: Love Ya Like A Sister;
@@ -200,8 +209,42 @@ body #login form #btn, body #registration form #btn, body #classification form #
     transform: none;
   }
 }
-body #login p, body #registration p, body #classification p, body #vehicle p, body #client-update p, body #uploads p {
+body #login p, body #registration p, body #classification p, body #vehicle p, body #client-update p, body #uploads p, body #search p {
   font-size: 1.5rem;
+}
+body #search #search-form {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  justify-content: center;
+}
+body #search #search-form form {
+  grid-column: 2/3;
+}
+body #search #search-form form label input {
+  width: 100%;
+}
+body #search #search-form form input:focus:valid {
+  /* insert your own styles for valid form input */
+  background-color: rgb(0, 153, 51);
+  color: #ffffff;
+}
+body #search #search-form form input:focus:invalid {
+  /* insert your own styles for invalid form input */
+  background-color: rgb(252, 182, 231);
+}
+body #search #sResult {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+body #search #sResult p {
+  font-size: 1.3rem;
+}
+body #search #sResult img {
+  float: left;
+  margin: 0.5rem;
+}
+body #classification form label input, body #vehicle form label input, body #registration form label input, body #login form label input, body #client-update form label input {
+  max-width: 18rem;
 }
 body #classification form input:focus:valid, body #vehicle form input:focus:valid, body #registration form input:focus:valid, body #login form input:focus:valid, body #client-update form input:focus:valid {
   /* insert your own styles for valid form input */
@@ -276,9 +319,6 @@ body footer p {
     border: 4px #4c96d7 solid;
     border-radius: 15px;
   }
-  html body header h2 {
-    right: 3rem;
-  }
   html body nav ul {
     justify-content: flex-start;
   }
@@ -328,8 +368,26 @@ body footer p {
   html body #veh-detail .color {
     font-size: 1.2rem;
   }
-  html body #veh-detail section aside {
+  html body #veh-detail section aside img {
     display: block;
+  }
+  html body #search #sResult article {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 1rem 1.5rem 0;
+  }
+  html body #search #sResult article img {
+    grid-column: 2/3;
+    grid-row: 1/3;
+  }
+  html body #search #sResult article img:hover {
+    animation: beat 60s;
+  }
+  html body #search #sResult article h2 {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+  }
+  html body #search #sResult article p {
+    margin: 0 0.5rem 0.5rem 0.5rem;
   }
 }
 @media only screen and (min-width: 54rem) {

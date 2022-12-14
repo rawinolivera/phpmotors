@@ -65,7 +65,7 @@ function getInvItemInfo($invId){
     $db = phpmotorsConnect();
     $sql = 'SELECT * FROM inventory WHERE invId = :invId';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt->bindValue(':invId', $invId, PDO::PARAM_STR);
     $stmt->execute();
     $invInfo = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
@@ -94,7 +94,7 @@ function updateVehicle($invId, $classificationId, $invMake, $invModel, $invDescr
     $stmt->bindValue(':invPrice', $invPrice, PDO::PARAM_STR);
     $stmt->bindValue(':invStock', $invStock, PDO::PARAM_STR);
     $stmt->bindValue(':invColor', $invColor, PDO::PARAM_STR);
-    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT); 
+    $stmt->bindValue(':invId', $invId, PDO::PARAM_STR); 
     // Insert the data
     $stmt->execute();
     // Ask how many rows changes as a result of our insert
@@ -114,7 +114,7 @@ function deleteItem($invId){
     $stmt = $db->prepare($sql);
     // The next four lines replace the placeholders in the sql
     // Statement with the actual values in the variables and tell the database the type of data it is
-    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT); 
+    $stmt->bindValue(':invId', $invId, PDO::PARAM_STR); 
     // Insert the data
     $stmt->execute();
     // Ask how many rows changes as a result of our insert
@@ -131,7 +131,7 @@ function getVehiclesByClassification($classificationName){
     $sql = 'SELECT inventory.invId, inventory.invMake, inventory.invModel, inventory.invPrice, images.imgPath
     FROM ((inventory
            INNER JOIN images ON inventory.invId = images.invId)
-           INNER JOIN carclassification ON inventory.classificationId = carclassification.classificationId AND carclassification.classificationName = :classificationName and images.imgName LIKE "%tn%" and images.imgPrimary = "1")';
+           INNER JOIN carclassification ON inventory.classificationId = carclassification.classificationId AND carclassification.classificationName = :classificationName and images.imgName LIKE "%tn%")';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();
@@ -143,11 +143,11 @@ function getVehiclesByClassification($classificationName){
 function getVehicleDetailInfo($vehicleId){
     $db = phpmotorsConnect();
     //$sql = 'SELECT * FROM inventory WHERE invId = :invId';
-    $sql = 'SELECT inventory.invId, inventory.invMake, inventory.invModel, inventory.invPrice, inventory.invDescription, inventory.invColor, inventory.invStock, images.imgPath
+    $sql = 'SELECT inventory.invId, inventory.invMake, inventory.invModel, inventory.invPrice, inventory.invDescription, inventory.invColor, images.imgPath
     FROM inventory
            INNER JOIN images ON inventory.invId = images.invId AND inventory.invId = :invId ORDER BY images.imgId LIMIT 1';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':invId', $vehicleId, PDO::PARAM_INT);
+    $stmt->bindValue(':invId', $vehicleId, PDO::PARAM_STR);
     $stmt->execute();
     $vehicleSelected = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt->closeCursor();

@@ -103,11 +103,10 @@ switch ($action){
         $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
         $inventoryArray = getInventoryByClassification($classificationId);
         echo json_encode($inventoryArray);
-
         break;
 
     case 'mod':
-        $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+        $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $invInfo = getInvItemInfo($invId);
         if(count($invInfo)<1){
             $message = 'Sorry, no vehicle information could be found.';
@@ -161,7 +160,7 @@ switch ($action){
     case 'deleteVehicle':
         $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $deleteResult = deleteItem($invId);
 
@@ -191,7 +190,7 @@ switch ($action){
         break;
 
     case 'vehicle-detail':
-        $vehicleId = filter_input(INPUT_GET, 'vehicleId', FILTER_SANITIZE_NUMBER_INT);
+        $vehicleId = filter_input(INPUT_GET, 'vehicleId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $vehicleSelected = getVehicleDetailInfo($vehicleId);
         $thumbnails = getThumbnailImages($vehicleId);
         if(!count($vehicleSelected)){
