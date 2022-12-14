@@ -70,4 +70,12 @@ switch ($action) {
     echo "aqui voy";
     $searchDisplay = buildSearchResults($sResults);
   }
+  
+  include '../views/search.php';
+  break;
+default:
+  include '../views/search.php';
+  break;
 }
+
+?>
