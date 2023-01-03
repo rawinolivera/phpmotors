@@ -258,4 +258,42 @@ function buildSearchResults($sResults){
     return $searchDisplay;
 }
 
+// Build pagination bar
+function pagination($totalPages, $page, $searchBar)
+{
+  // THIS CREATES THE PAGINATION LINKS AT THE BOTTOM OF THE SEARCH WHICH ALLOWS US TO GO FROM PAGE TO PAGE.
+    $previous = $page - 1;
+    $next = $page + 1;
+
+    //1 page
+    if($totalPages <= 1){
+        $paginationBar = "";
+    }
+    //1+ result
+    else {
+        // Div with numbers
+        $paginationBar = '<article id="pagination">';
+
+        //if current page is > 1, show the previous link
+        if ($page > 1){
+            $paginationBar .= '<a style="color:blue" title="Previous page" href="/phpmotors/search/index.php?action=search&page=' . $previous . '&searchBar= ' . $searchBar . '"><< Previous</a>';
+        }
+
+        //Create page numbers link
+        for ($page_num = 1; $page_num <= $totalPages; $page_num++){
+            if ($page_num != $page) {
+                $paginationBar .= '<a style="color:blue" title="Page ' . $page_num . '" href="/phpmotors/search/index.php?action=search&page=' . $page_num . '&searchBar=' . $searchBar . '">' . $page_num . '</a>';
+            } else {
+                $paginationBar .= '<a style="pointer-events: none;color:black" href="/phpmotors/search/index.php?action=search&page=' . $page_num . '">' . $page_num . '</a>';
+            }
+        };
+
+        if ($page < $totalPages){
+            $paginationBar .= '<a style="color:blue" title="Next page" href="/phpmotors/search/index.php?action=search&page=' . $next . '&searchBar= ' . $searchBar . '">Next >></a>';
+        }
+        $paginationBar .= '</article>';
+    }
+    return $paginationBar;
+}
+
 ?>

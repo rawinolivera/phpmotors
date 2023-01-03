@@ -131,7 +131,7 @@ function getVehiclesByClassification($classificationName){
     $sql = 'SELECT inventory.invId, inventory.invMake, inventory.invModel, inventory.invPrice, images.imgPath
     FROM ((inventory
            INNER JOIN images ON inventory.invId = images.invId)
-           INNER JOIN carclassification ON inventory.classificationId = carclassification.classificationId AND carclassification.classificationName = :classificationName and images.imgName LIKE "%tn%")';
+           INNER JOIN carclassification ON inventory.classificationId = carclassification.classificationId AND carclassification.classificationName = :classificationName AND images.imgName LIKE "%tn%")';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();

@@ -30,11 +30,11 @@ switch ($action) {
   $searchBar = trim(filter_input(INPUT_POST, 'searchBar', FILTER_SANITIZE_SPECIAL_CHARS)) ?: trim(filter_input(INPUT_GET, 'searchBar', FILTER_SANITIZE_SPECIAL_CHARS));
   if (empty($searchBar)) {
     $message = '<p class="notice">You must provide a search string.</p>';
+    $result_msg = "<p>Returned 0 results for: " . $searchBar . " </p>";
     include '../views/search.php';
     exit;
-  }
-
-  // page is always pulled from the pagination links, so no need to look at the INPUT_POST
+  } else {
+    // page is always pulled from the pagination links, so no need to look at the INPUT_POST
   $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT);
   if (empty($page)) {
     $page = 1;
@@ -44,8 +44,7 @@ switch ($action) {
   
 
   $srNum = count($sResults);
-  $result_msg = "";
-  if ($srNum < 0) {
+  if ($srNum < 0 || $srNum == null) {
     $result_msg = "<p>Returned 0 results for: " . $searchBar . " </p>";
   } else {
     $result_msg = "<p>Returned $srNum results for: " . $searchBar . " </p>";
@@ -53,26 +52,31 @@ switch ($action) {
 
   if ($srNum < 1) {
     $searchDisplay = '<h3 class="notice">Sorry, no results were found to match ' . $searchBar . '.</h3>';
-/*    } elseif ($srNum > 10) {
+    } elseif ($srNum > 10) {
+      
+    
     // invoke pagination
     //Calculate number of pages needed
     $displayLimit = 10; // ENTRIES PER PAGE
     $totalPages = ceil($srNum / $displayLimit);
-
-    $paginatedResults = paginate($search, $page, $displayLimit);
+    
+    $page_start = ($page - 1) * $displayLimit;
+    $paginatedResults = paginate($searchBar, $page_start, $displayLimit);
 
     // This is the pagination bar (e.g. the HTML that goes under your search results)
-    $paginationBar = pagination($totalPages, $page, $search);
-
+    $paginationBar = pagination($totalPages, $page, $searchBar);
+    
     // Using the same function, but using the paginatedResults instead of all the results
-*/  //  $searchDisplay = buildSearchResults($paginatedResults);
-  } else {
-    echo "aqui voy";
+    $searchDisplay = buildSearchResults($paginatedResults);
+     } else {
     $searchDisplay = buildSearchResults($sResults);
   }
   
   include '../views/search.php';
   break;
+  }
+
+  
 default:
   include '../views/search.php';
   break;

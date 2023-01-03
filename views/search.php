@@ -40,6 +40,9 @@
         if(isset($searchDisplay)){
             echo $searchDisplay;
         }
+        if(isset($paginationBar)){
+            echo $paginationBar;
+        }
         ?>
         
     </main>
